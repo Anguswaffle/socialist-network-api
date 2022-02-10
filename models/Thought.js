@@ -6,6 +6,7 @@ const thoughtSchema = new Schema(
     thoughtText: {
       type: String,
       required: true,
+      // Sets length to 1-280 characters
       minlength: 1,
       maxlength: 280,
     },
@@ -18,6 +19,7 @@ const thoughtSchema = new Schema(
       type: String,
       required: true,
     },
+    // Reaction sub-document
     reactions: [reactionSchema]
   },
   {

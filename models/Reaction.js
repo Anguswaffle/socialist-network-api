@@ -24,8 +24,10 @@ const reactionSchema = new Schema(
   {
     toJSON: {
       getters: true,
-    }
+    },
+    id: false,
   }
 );
 
+// Only the schema is required for Thought sub-document
 module.exports = reactionSchema;

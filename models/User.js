@@ -13,6 +13,7 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       trim: true,
+      // Validates email address
       match: /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z]{2,6})$/
     },
     thoughts: [
