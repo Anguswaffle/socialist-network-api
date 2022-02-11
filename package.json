@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/Anguswaffle/socialist-network-api#readme",
   "dependencies": {
-    "casual": "^1.6.2",
     "express": "^4.17.2",
     "mongoose": "^6.2.1"
   },
   "devDependencies": {
+    "casual": "^1.6.2",
     "nodemon": "^2.0.15"
   }
 }
