@@ -49,6 +49,17 @@ module.exports = {
         res.status(500).json(err);
       })
   },
+  changeThought(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $set: req.body },
+      { new: true })
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: 'No thought with this ID' })
+          : res.json(thought))
+      .catch((err) => res.status(500).json(err));
+  },
   // Adds a reaction to a thought
   reactToThought(req, res) {
     Thought.findOneAndUpdate(
