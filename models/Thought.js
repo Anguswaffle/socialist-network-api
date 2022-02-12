@@ -27,6 +27,8 @@ const thoughtSchema = new Schema(
       virtuals: true,
       getters: true,
     },
+    versionKey: false,
+    id: false,
   }
 );
 

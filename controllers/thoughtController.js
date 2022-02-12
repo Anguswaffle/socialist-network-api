@@ -49,6 +49,7 @@ module.exports = {
         res.status(500).json(err);
       })
   },
+  // Update a thought
   changeThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -59,6 +60,15 @@ module.exports = {
           ? res.status(404).json({ message: 'No thought with this ID' })
           : res.json(thought))
       .catch((err) => res.status(500).json(err));
+  },
+  // Delete a thought
+  thoughtCrime(req, res) {
+    Thought.findOneAndDelete({ _id: req.params.thoughtId })
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: 'No thought found with that ID' })
+          : res.json(thought))
+      .catch((err) => res.status(500).json(err))
   },
   // Adds a reaction to a thought
   reactToThought(req, res) {
