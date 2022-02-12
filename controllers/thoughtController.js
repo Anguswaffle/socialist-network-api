@@ -7,6 +7,7 @@ const thoughtCount = async () =>
     .then((numberOfThoughts) => numberOfThoughts);
 
 module.exports = {
+  // Get all thoughts
   getThoughts(req, res) {
     Thought.find()
       .then(async (thoughts) => {
@@ -18,6 +19,7 @@ module.exports = {
       })
       .catch((err) => res.status(500).json(err));
   },
+  // Get a single thought
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .select('-__v')
@@ -27,6 +29,7 @@ module.exports = {
           : res.json(thought))
       .catch((err) => res.status.json(err))
   },
+  // Creates a single thought
   thinkThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
@@ -46,6 +49,7 @@ module.exports = {
         res.status(500).json(err);
       })
   },
+  // Adds a reaction to a thought
   reactToThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -54,6 +58,7 @@ module.exports = {
       .then((thought) => res.json(thought))
       .catch((err) => res.status(500).json(err))
   },
+  // Deletes a single reaction
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
