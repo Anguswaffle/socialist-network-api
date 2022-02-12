@@ -9,7 +9,13 @@ const thoughtCount = async () =>
 module.exports = {
   getThoughts(req, res) {
     Thought.find()
-      .then((thoughts) => res.json(thoughts))
+      .then(async (thoughts) => {
+        const thoughtObj = {
+          thoughtCount: await thoughtCount(),
+          thoughts
+        };
+        return res.json(thoughtObj);
+      })
       .catch((err) => res.status(500).json(err));
   },
   getSingleThought(req, res) {
