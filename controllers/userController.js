@@ -1,10 +1,10 @@
 const { User, Thought } = require('../models');
 
+// Total count of users
 const userCount = async () =>
   User.aggregate()
     .count('userCount')
     .then((numberOfUsers) => numberOfUsers);
-
 
 module.exports = {
   // Get all users
@@ -26,7 +26,7 @@ module.exports = {
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
-      // .populate('thoughts')
+      .populate('thoughts')
       // .populate('friends')
       .then((user) =>
         !user
