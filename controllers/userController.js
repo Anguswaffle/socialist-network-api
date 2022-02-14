@@ -53,12 +53,14 @@ module.exports = {
   },
   // Delete a user
   deleteUser(req, res) {
-    User.findOneAndDelete({ _id: req.params.userId})
-    .then((user) => 
-    !user
-    ? res.status(404).json({message: 'No user found with that ID' })
-    : res.json(user))
-    .catch((err) => res.status(500).json(err))
+    User.findOneAndDelete({ _id: req.params.userId })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No user with that ID' })
+          : Thought.deleteMany({ username: user.username })
+      )
+      .then(() => res.json({ message: 'User and thoughts deleted!'}))
+      .catch((err) => res.status(500).json(err));
   },
   // Adds a friend to user's friend list
   addFriend(req, res) {
