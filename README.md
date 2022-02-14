@@ -29,6 +29,8 @@
 
   ## Usage
 
+  ![Demo that shows several different routes in insomnia.](./Assets/insomnia-preview.gif)
+
   Using an api-testing tool, try out these routes:
 
 
