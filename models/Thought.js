@@ -32,6 +32,7 @@ const thoughtSchema = new Schema(
   }
 );
 
+// Lists the length of a thought
 thoughtSchema.virtual('reactionCount').get(function() {
   return this.reactions.length;
 });

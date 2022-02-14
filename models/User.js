@@ -37,7 +37,7 @@ const userSchema = new Schema(
     versionKey: false,
   }
 );
-
+// Lists number of friends a user has
 userSchema.virtual('friendCount').get(function() {
   return this.friends.length;
 })

@@ -57,8 +57,8 @@ connection.once('open', async () => {
     const thought = thoughts[i];
     await User.collection.findOneAndUpdate(
       { username: thought.username },
-      { $addToSet: { thoughts: thought._id, friends: getRandomArrItem(users)._id } },
-      // {new: true}
+      { $addToSet: { thoughts: thought._id, 
+        friends: getRandomArrItem(users)._id } },
     )
   }
 
@@ -70,7 +70,6 @@ connection.once('open', async () => {
     await Thought.collection.findOneAndUpdate(
       { _id: thoughtId },
       { $addToSet: { reactions: reaction } },
-      // {new: true}
     )
   }
 
