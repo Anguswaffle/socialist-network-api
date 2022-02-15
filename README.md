@@ -31,6 +31,8 @@
 
   ![Demo that shows several different routes in insomnia.](./Assets/insomnia-preview.gif)
 
+  Check out this video demo (seeds now work though): https://drive.google.com/file/d/14-15O99tKAh0HuE5uJ47JzQ-qHHUpUaK/view
+
   Using an api-testing tool, try out these routes:
 
 
